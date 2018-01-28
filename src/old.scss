@@ -1,0 +1,96 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+    font-family: "PingFangSC-Regular";
+    font-size: 312.5%;
+}
+body {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    color: #333;    
+}
+body *{
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select:none;
+    margin:0;
+    padding: 0;
+}
+
+.list{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+/* 小屏幕（平板，大于等于 768px） */
+@media (min-width: 480px) { 
+    .list{
+        width: 480px;
+    }
+}
+
+.list.first{
+    height: 41.25rem;
+    background-image: url(../assets/images/bg_top.jpg);
+    img{
+        margin: 0 0.33rem;
+        width: 2.525rem;
+        height:1.19rem;
+    }
+    .first-lead{
+        position: relative;
+        top:28.25rem;
+        margin:0 auto;
+        padding: 0 1.335rem;
+        width:24rem;
+        min-width: 82%;
+        height:10.05em;
+    }
+    .lead-content{
+        text-indent: 2em;
+        font-size: 1.08rem ;
+        color: #ffeeba;
+        line-height: 2rem;
+    }
+}
+@media screen and (max-width: 320px){  
+    .list.first{
+        .first-lead{
+            padding: 0 0.935rem;
+        }
+    }
+}  
+
+.list.mostInfluential{
+  background-image: url(../assets/images/bg_tile.jpg);
+  .bg{
+    background: url(../assets/images/most-influential.png) no-repeat;
+  }
+  .list-header{
+      width:26.915rem;
+      height: 2.375rem;
+      background-size: 100% 6.375rem;
+      margin: 0 auto;
+      background-position:0 0;
+      
+  }
+  
+}
+
+// 底部浮动固定banner
+.footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5rem;
+    background:url(../assets/images/footer.png) no-repeat; 
+    background-size: 100% 100%;
+}

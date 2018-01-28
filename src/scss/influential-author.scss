@@ -1,0 +1,228 @@
+@import './common-variables.scss';
+$images-url:$images-root-url+'/influential-author';
+$header-image:$images-url+'/title_B.png';
+$popular-url:$images-url+'/B1';
+$ajective-url:$images-url+'/B2';
+$quality-url:$images-url+'/B3';
+@function author-img($type, $order) {
+    @if $type=='popular' {
+        @return $popular-url+'/avatar_B'+$order+'.png';
+    }
+    @if $type=='ajective' {
+        @return $ajective-url+'/avatar_B'+$order+'.png';
+    }
+    @if $type=='quality' {
+        @return $quality-url+'/avatar_B'+$order+'.png';
+    }
+}
+
+.list.influentialauthor {
+    background-image: url($background-image2); // 标题
+    .list-header {
+        background-image: url($header-image);
+    } // 导航
+    .nav {
+        width: px2rem(685px);
+        height: px2rem(67px);
+        margin: px2rem(35px) px2rem(43px) px2rem(30px);
+        background-size: 100% 100%;
+        display: flex;
+        display: -webkit-flex;
+        -webkit-box-flex: 3;
+        -ms-flex: 3;
+        flex: 3;
+        justify-content: space-between;
+        &.popular {
+            background-image: url($popular-url+'/tab_B1.png');
+        }
+        &.ajective {
+            background-image: url($ajective-url+'/tab_B2.png');
+        }
+        &.quality {
+            background-image: url($quality-url+'/tab_B3.png');
+        }
+        a {
+            flex-grow: 1;
+        }
+    } // 排行榜标题2
+    .list-h2 {
+        width: px2rem(282px);
+        margin: px2rem(20px) auto;
+        color: #D3B368;
+        font-size: px2rem(32px);
+        line-height: px2rem(48px);
+        span:not(:first-child) {
+            display: none;
+        }
+    } // 作者头像、粉丝数、文章链接信息
+    .verb {
+        margin: px2rem(24px) auto px2rem(20px);
+        width: px2rem(210px);
+        height: px2rem(78px);
+        text-align: center;
+    }
+    .name {
+        font-size: px2rem(28px);
+        color: #FFEEBA;
+        line-height: px2rem(39px);
+    }
+    .fans {
+        font-size: px2rem(26px);
+        color: #D3B368;
+        line-height: px2rem(40px);
+    }
+    .authors>div,
+    li {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        color: currentColor;
+    } // top3 
+    .list-top3 {
+        display: flex;
+        display: -webkit-flex;
+        -webkit-box-flex: 3;
+        -ms-flex: 3;
+        flex: 3;
+        margin: px2rem(40px) px2rem(30px);
+        color: #FFEEBA;
+    }
+    .bg-top2 {
+        margin-top: px2rem(103px);
+        width: px2rem(148px);
+        height: px2rem(202px);
+        background: url(author-img('popular', 2)) no-repeat;
+        background-size: 100% 100%;
+    }
+    .bg-top1 {
+        margin-top: px2rem(0px);
+        width: px2rem(165px);
+        height: px2rem(224px);
+        background: url(author-img('popular', 1)) no-repeat;
+        background-size: 100% 100%;
+    }
+    .bg-top3 {
+        margin-top: px2rem(103px);
+        width: px2rem(148px);
+        height: px2rem(202px);
+        background: url(author-img('popular', 3)) no-repeat;
+        background-size: 100% 100%;
+    } // 榜单剩余排名
+    .list-others-img {
+        width: 100%;
+        overflow-x: scroll;
+        margin: px2rem(60px) 0 px2rem(180px);
+        .authors {
+            display: flex;
+            display: -webkit-flex;
+            -webkit-box-flex: 7;
+            -ms-flex: 7;
+            flex: 7;
+            padding: 0 1.625rem;
+            width: fit-content;
+        }
+    }
+    .author {
+        margin-right: px2rem(10px);
+        .verb {
+            height: auto;
+            width: px2rem(150px);
+            margin-bottom: px2rem(18px);
+        }
+        .bg {
+            width: px2rem(100px);
+            height: px2rem(140px); // background:url(author-img('popular', 4)) no-repeat; 
+            // background-size:100% 100%;
+        }
+    }
+    $i: 1;
+    @while $i < 11 {
+        .list-popular .bg-top#{$i} {
+            background: url(author-img('popular', $i)) no-repeat;
+            background-size: 100% 100%;
+        }
+        .list-ajective .bg-top#{$i} {
+            background: url(author-img('ajective', $i)) no-repeat;
+            background-size: 100% 100%;
+        }
+        .list-quality .bg-top#{$i} {
+            background: url(author-img('quality', $i)) no-repeat;
+            background-size: 100% 100%;
+        }
+        $i: $i+1;
+    }
+    .list-others {
+        width: px2rem(690px);
+        margin: px2rem(50px) auto px2rem(150px);
+        border: solid 1px #504E50;
+        .items {
+            width: 100%;
+            color: #FFEEBA;
+            font-size: px2rem(28px);
+        }
+        .item {
+            position: relative;
+            display: none;
+            box-sizing: border-box;
+            width: 100%;
+            $height: px2rem(112px);
+            height: $height;
+            line-height: $height;
+            .icon {
+                margin-left: px2rem(40px);
+            }
+            .item-title {
+                display: inline-block;
+                overflow: hidden;
+                white-space: nowrap;
+                overflow-wrap: nowrap;
+                text-overflow: ellipsis;
+                width: px2rem(420px);
+                font-size: px2rem(28px);
+                margin-left: px2rem(20px);
+            }
+            .goto-article {
+                float: right;
+                margin-right: px2rem(40px);
+            }
+        }
+        .item::after {
+            position: absolute;
+            bottom: 0;
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: url(../assets/images/line.png) no-repeat;
+            background-size: px2rem(689px) 1px;
+        }
+        .item:nth-child(1),
+        .item:nth-child(2) {
+            display: block;
+        }
+        .readmore {
+            padding-top: px2rem(40px);
+            $height: px2rem(129px);
+            height: $height;
+            text-align: center;
+            a {
+                color: #D3B368;
+            }
+            .icon-arrow {
+                margin-top: 19px;
+            }
+        }
+    }
+}

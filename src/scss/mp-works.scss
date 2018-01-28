@@ -1,0 +1,216 @@
+@import './common-variables.scss';
+$images-url:$images-root-url+'/mp-works';
+$header-image:$images-url+'/title_C.png';
+$spread-url:$images-url+'/C1';
+$topic-url:$images-url+'/C2';
+@function author-img($type, $order) {
+    @if $type=='spread' {
+        @return $spread-url+'/avatar_C'+$order+'.png';
+    }
+    @if $type=='topic' {
+        @return $topic-url+'/avatar_C'+$order+'.png';
+    }
+}
+
+.list.mpworks {
+    background-image: url($background-image2); // 标题
+    .list-header {
+        background-image: url($header-image);
+    } // 导航
+    .nav {
+        width: px2rem(685px);
+        height: px2rem(67px);
+        margin: px2rem(35px) px2rem(43px) px2rem(30px);
+        background-size: 100% 100%;
+        display: flex;
+        display: -webkit-flex;
+        -webkit-box-flex: 3;
+        -ms-flex: 3;
+        flex: 3;
+        justify-content: space-between;
+        &.spread {
+            background-image: url($spread-url+'/tab_C1.png');
+        }
+        &.topic {
+            background-image: url($topic-url+'/tab_C2.png');
+        }
+        a {
+            flex-grow: 1;
+        }
+    } 
+    // 排行榜标题2
+    .list-h2 {
+        width: px2rem(314px);
+        margin: px2rem(20px) auto;
+        color: #D3B368;
+        font-size: px2rem(32px);
+        line-height: px2rem(48px);
+        span:not(:first-child) {
+            display: none;
+        }
+    }
+   
+    // top3 
+    .list-top3 {
+        display: flex;
+        display: -webkit-flex;
+        -webkit-box-flex: 3;
+        -ms-flex: 3;
+        flex: 3;
+        color: #FFEEBA;
+    }
+    .top {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        color: currentColor;
+    }
+    .list-spread .top:last-child .title{
+        width: px2rem(224.1px);
+    }
+    .title {
+        color: #FFEEBA;
+        font-size: px2rem(28px);
+        margin-top: px2rem(24px);
+        width: px2rem(210px);
+        line-height: px2rem(39px);
+        text-align: center;
+    }
+    .index {
+        color: #D3B368;
+        font-family: "PingFangSC-Light";
+        font-size: px2rem(26px);
+        width: px2rem(110px);
+        line-height: px2rem(40px);
+        text-align: center;
+    }
+    .bg-top2 {
+        margin-top: px2rem(100px);
+        width: px2rem(185px);
+        height: px2rem(193px);
+        background: url(author-img('spread', 2)) no-repeat;
+        background-size: 100% 100%;
+    }
+    .bg-top1 {
+        margin-top: px2rem(40px);
+        width: px2rem(210px);
+        height: px2rem(212px);
+        background: url(author-img('spread', 1)) no-repeat;
+        background-size: 100% 100%;
+    }
+    .bg-top3 {
+        margin-top: px2rem(100px);
+        width: px2rem(185px);
+        height: px2rem(193px);
+        background: url(author-img('spread', 3)) no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .list-topic {
+        .bg-top2 {
+            background: url(author-img('topic', 2)) no-repeat;
+            background-size: 100% 100%;
+        }
+        .bg-top1 {
+            background: url(author-img('topic', 1)) no-repeat;
+            background-size: 100% 100%;
+        }
+        .bg-top3 {
+    
+            background: url(author-img('topic', 3)) no-repeat;
+            background-size: 100% 100%;
+        }
+    }
+    .top3href {
+        margin: px2rem(20px) auto 0;
+        width: px2rem(610px);
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: px2rem(26px);
+        line-height: 1;
+        a {
+            margin-right: px2rem(130px);
+        }
+    }
+    .list-others {
+        width: px2rem(690px);
+        margin: px2rem(50px) auto px2rem(16px);
+        border: solid 1px #504E50;
+        .items {
+            width: 100%;
+            color: #FFEEBA;
+            font-size: px2rem(28px);
+        }
+        .item {
+            position: relative;
+            display: none;
+            box-sizing: border-box;
+            padding: px2rem(32px) px2rem(40px);
+            width: 100%;
+            $height: px2rem(150px);
+            height: $height;
+            font-family: "PingFangSC-Light";
+            p:first-child {
+                font-size: px2rem(28px); // height: px2rem(40px);
+                // line-height: px2rem(40px);
+            }
+            .icon {
+                width: px2rem(40px); // margin-left:px2rem(40px);
+            }
+            .item-title {
+                // display: inline-block;
+                // overflow: hidden;
+                // white-space: nowrap;
+                // overflow-wrap: nowrap;
+                // text-overflow: ellipsis;
+                // width: px2rem(420px);
+                margin-left: px2rem(10px);
+            }
+            p:last-child {
+                
+                color: #D3B368;
+                margin-top: px2rem(16px);
+                font-size: px2rem(26px);
+                line-height: 1;
+                padding-left: px2rem(60px);
+            }
+            .goto-article {
+                float: right;
+                margin-right: px2rem(40px);
+            }
+        }
+        .item::after {
+            position: absolute;
+            bottom: 0;
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: url($images-root-url+'/line.png') no-repeat;
+            background-size: px2rem(689px) 1px;
+        }
+        .item:nth-child(1),
+        .item:nth-child(2) {
+            display: block;
+        }
+    }
+    .standard {
+        margin: px2rem(16px) auto px2rem(114px);
+        width: px2rem(670px);
+        font-size: px2rem(24px);
+        line-height: 1.5;
+        color: #D3B368;
+    }
+}
