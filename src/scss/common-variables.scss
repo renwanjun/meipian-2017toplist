@@ -1,0 +1,64 @@
+$browser-default-font-size:32px;
+$fonts-url:'https://ss2.meipian.me/test/theme/v2/list/fonts';
+$images-root-url:'https://ss2.meipian.me/test/theme/v2/list/images';
+
+
+$background-image1:$images-root-url+'/bg_tile.jpg';
+$background-image2:$images-root-url+'/bg_tile.png';
+@font-face{
+    font-family: 'PingFangSC-Light';
+    src : url($fonts-url+'/PingFang Light.ttf');
+}
+@font-face{
+    font-family: 'PingFangSC-Regular';
+    src : url($fonts-url+'/PingFang-SC-Regular.otf');
+}
+@function px2rem($px) {
+    @return $px / $browser-default-font-size * 1rem;
+}
+
+@function order-img-url($order) {
+    @return $images-root-url+'/icon_'+$order+'.png';
+}
+
+@media screen and (max-width: 360px) {
+    html {
+        font-size:80%;
+    }
+}
+
+@media screen and (min-width: 361px) and (max-width: 480px) {
+   
+    html {
+        font-size: 100%;
+    }
+  
+}
+
+@media screen and (min-width: 481px) and (max-width: 560px) {
+    
+    html {
+        font-size: 150%;
+    }
+}
+
+@media screen and (min-width: 561px) and (max-width: 750px) {
+  
+    html {
+        font-size: 150%;
+    }
+}
+
+@media screen and (min-width: 751px) and (max-width: 960px) {
+    $browser-default-font-size:750%;
+    html {
+        font-size: 200%;
+    }
+   
+}
+
+@media screen and (min-width: 961px) {
+    html {
+        font-size: 250%;
+    }
+}

@@ -1,0 +1,20 @@
+
+html,body{
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+}
+body {
+    word-wrap: break-word;
+    font: 16px/1.5 Helvetica, Arial;
+    color: #333;
+    -webkit-text-size-adjust: none; 
+    
+}
+body *{
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select:none;
+}
+
