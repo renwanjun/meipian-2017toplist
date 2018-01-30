@@ -15,7 +15,7 @@ $(document).ready(function () {
         // 'failure_limit':2 //加载2张可见区域外的图片,lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况
     });
 
-    $('a').click(function(evt){
+    $('a.goto-article,a.goto-column').click(function(evt){
         evt.preventDefault();
         var href=$(this).attr('href').trim();
         var className=$(this).attr('class');
@@ -80,7 +80,7 @@ $(document).ready(function () {
     })
 
     // 在App内部显示，否则不显示
-    if (call_app_pure.isApp) {
+    if (call_app_pure.isAPP) {
         $('.footer').hide();
     }
 
