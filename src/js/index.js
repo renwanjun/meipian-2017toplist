@@ -15,6 +15,35 @@ $(document).ready(function () {
         // 'failure_limit':2 //加载2张可见区域外的图片,lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况
     });
 
+    $('a').click(function(evt){
+        evt.preventDefault();
+        var href=$(this).attr('href').trim();
+
+        if(!call_app_pure.isApp){
+            window.location.href=href;
+            return;
+        }
+
+        var articleExp=/^https:\/\/www.meipian.cn\/([a-zA-Z\d]+)$/,
+            authorExp=/^https:\/\/www.meipian.cn\/c\/([\d]+)$/
+        if(articleExp.test(href)){
+            var mask_id=href.match(articleExp)[1];
+            call_app_pure.goArticle(mask_id);
+        }
+        if(authorExp.test(href)){
+            var user_id=href.match(authorExp)[1];
+            call_app_pure.goColumn(authorExp);
+        }
+        //console.log(articleExp.test(href))
+
+        // var parentsClass=$(this).parents('.list').attr('class');
+        // if(parentsClass.indexOf('influentialauthor')>=0 || parentsClass.indexOf('mpusers')>=0){
+        //     window.location.href=href;
+        // }else{
+        //     window.location.href=call_app_pure.isApp?href:href+"?from=appviewrcmd";
+        // }
+    })
+
     // 在App内部显示，否则不显示
     if (call_app_pure.isApp) {
         $('.footer').hide();
