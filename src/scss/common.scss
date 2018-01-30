@@ -59,9 +59,6 @@ a {
     }
 }
 
-
-
-
 // 榜单标题
 .list-header {
     $padding: 9px;
@@ -76,7 +73,7 @@ a {
 }
 
 // 文件跳转链接
-.goto-article {
+.goto-article,.goto-column {
     $fontsize: px2rem(26px);
     font-size: $fontsize;
     font-family: "PingFangSC-Light";

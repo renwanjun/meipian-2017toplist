@@ -18,22 +18,57 @@ $(document).ready(function () {
     $('a').click(function(evt){
         evt.preventDefault();
         var href=$(this).attr('href').trim();
+        var className=$(this).attr('class');
 
-        // if(!call_app_pure.isApp){
-        //     window.location.href=href;
-        //     return;
+        if(!call_app_pure.isAPP){
+            window.location.href=href;
+            return;
+        }
+        
+        // 上线环境
+        // var start=href.lastIndexOf('\/')+1,
+        //     end=href.length-1;
+
+        // if(className.indexOf('article')>=0){
+        //     // href='https://t-www.meipian.cn/v8k1irx';
+        //     var mask_id=href.substr(start,end);
+        //     call_app_pure.goArticle(mask_id);
+        // }else if(className.indexOf('column')>=0){
+        //     // href='https://t-www.meipian.cn/c/15895943';
+        //     var user_id=href.substr(start,end);
+        //     call_app_pure.goColumn(user_id);
         // }
 
-        var articleExp=/^https:\/\/www.meipian.cn\/([a-zA-Z\d]+)$/,
-            authorExp=/^https:\/\/www.meipian.cn\/c\/([\d]+)$/
-        if(articleExp.test(href)){
-            var mask_id=href.match(articleExp)[1];
+        // 测试环境
+        var start=href.lastIndexOf('\/')+1,
+            end=href.length-1;
+
+        if(className.indexOf('article')>=0){
+            href='https://t-www.meipian.cn/v8k1irx';
+            var start=href.lastIndexOf('\/')+1,
+            end=href.length-1;
+            var mask_id=href.substr(start,end);
             call_app_pure.goArticle(mask_id);
+        }else if(className.indexOf('column')>=0){
+            href='https://t-www.meipian.cn/c/15895943';
+            var start=href.lastIndexOf('\/')+1,
+            end=href.length-1;
+            var user_id=href.substr(start,end);
+            call_app_pure.goColumn(user_id);
         }
-        if(authorExp.test(href)){
-            var user_id=href.match(authorExp)[1];
-            call_app_pure.goColumn(authorExp);
-        }
+
+        // var articleExp=/^https:\/\/www.meipian.cn\/([a-zA-Z\d]+)$/,
+        //     authorExp=/^https:\/\/www.meipian.cn\/c\/([\d]+)$/
+        // if(articleExp.test(href)){
+        //     href='https://t-www.meipian.cn/v8k1irx';
+        //     // var mask_id=href.match(articleExp)[1];
+        //     call_app_pure.goArticle('v8k1irx');
+        // }
+        // if(authorExp.test(href)){
+        //     href='https://t-www.meipian.cn/c/15895943';
+        //     var user_id=href.match(authorExp)[1];
+        //     call_app_pure.goColumn(authorExp);
+        // }
         //console.log(articleExp.test(href))
 
         // var parentsClass=$(this).parents('.list').attr('class');
