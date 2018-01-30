@@ -19,10 +19,10 @@ $(document).ready(function () {
         evt.preventDefault();
         var href=$(this).attr('href').trim();
 
-        if(!call_app_pure.isApp){
-            window.location.href=href;
-            return;
-        }
+        // if(!call_app_pure.isApp){
+        //     window.location.href=href;
+        //     return;
+        // }
 
         var articleExp=/^https:\/\/www.meipian.cn\/([a-zA-Z\d]+)$/,
             authorExp=/^https:\/\/www.meipian.cn\/c\/([\d]+)$/
