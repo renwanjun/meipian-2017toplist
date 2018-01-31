@@ -14,6 +14,7 @@ $topic-url:$images-url+'/C2';
 
 .list.mpworks {
     background-image: url($background-image2); // 标题
+    padding-top:  px2rem(180px);
     .list-header {
         // background-image: url($header-image);
     } // 导航
@@ -34,7 +35,7 @@ $topic-url:$images-url+'/C2';
         &.topic {
             background-image: url($topic-url+'/tab_C2.png');
         }
-        a {
+        .href {
             flex-grow: 1;
         }
     } 
@@ -207,7 +208,7 @@ $topic-url:$images-url+'/C2';
         }
     }
     .standard {
-        margin: px2rem(16px) auto px2rem(114px);
+        margin: px2rem(16px) auto 0;
         width: px2rem(670px);
         font-size: px2rem(24px);
         line-height: 1.5;

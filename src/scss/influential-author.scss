@@ -18,6 +18,7 @@ $quality-url:$images-url+'/B3';
 
 .list.influentialauthor {
     background-image: url($background-image2); // 标题
+    padding-top: px2rem(150px);
     .list-header {
         // background-image: url($header-image);
     } // 导航
@@ -41,7 +42,7 @@ $quality-url:$images-url+'/B3';
         &.quality {
             background-image: url($quality-url+'/tab_B3.png');
         }
-        a {
+        .href {
             flex-grow: 1;
         }
     } // 排行榜标题2
@@ -124,7 +125,7 @@ $quality-url:$images-url+'/B3';
     .list-others-img {
         width: 100%;
         overflow-x: scroll;
-        margin: px2rem(60px) 0 px2rem(180px);
+        margin: px2rem(60px) 0 0;
         .authors {
             display: flex;
             display: -webkit-flex;
@@ -165,66 +166,5 @@ $quality-url:$images-url+'/B3';
     //     }
     //     $i: $i+1;
     // }
-    .list-others {
-        width: px2rem(690px);
-        margin: px2rem(50px) auto px2rem(150px);
-        border: solid 1px #504E50;
-        .items {
-            width: 100%;
-            color: #FFEEBA;
-            font-size: px2rem(28px);
-        }
-        .item {
-            position: relative;
-            display: none;
-            box-sizing: border-box;
-            width: 100%;
-            $height: px2rem(112px);
-            height: $height;
-            line-height: $height;
-            .icon {
-                margin-left: px2rem(40px);
-            }
-            .item-title {
-                display: inline-block;
-                overflow: hidden;
-                white-space: nowrap;
-                overflow-wrap: nowrap;
-                text-overflow: ellipsis;
-                width: px2rem(420px);
-                font-size: px2rem(28px);
-                margin-left: px2rem(20px);
-            }
-            .goto-article {
-                float: right;
-                margin-right: px2rem(40px);
-            }
-        }
-        .item::after {
-            position: absolute;
-            bottom: 0;
-            content: "";
-            display: block;
-            width: 100%;
-            height: 1px;
-            background: url(../assets/images/line.png) no-repeat;
-            background-size: px2rem(689px) 1px;
-        }
-        .item:nth-child(1),
-        .item:nth-child(2) {
-            display: block;
-        }
-        .readmore {
-            padding-top: px2rem(40px);
-            $height: px2rem(129px);
-            height: $height;
-            text-align: center;
-            a {
-                color: #D3B368;
-            }
-            .icon-arrow {
-                margin-top: 19px;
-            }
-        }
-    }
+   
 }

@@ -2,6 +2,9 @@
 $images-url:$images-root-url+'/most-influential';
 $header-image:$images-url+'/title_A.png';
 .list.mostInfluential {
+    margin-top: -1px;
+    padding-top:1px; 
+
     background-image: url($background-image1);
     .bg {
         background: url($images-root-url+'/most-influential.png') no-repeat;
@@ -77,7 +80,7 @@ $header-image:$images-url+'/title_A.png';
     }
     .list-others {
         width: px2rem(690px);
-        margin: px2rem(50px) auto px2rem(150px);
+        margin: px2rem(50px) auto 0;
         border: solid 1px #504E50;
         .items {
             width: 100%;
