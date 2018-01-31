@@ -38,12 +38,24 @@ $(document).ready(function () {
         evt.preventDefault();
         var href = $(this).attr('href').trim();
         var className = $(this).attr('class');
-
+        
+        // 判断是在浏览器中还是在app中
         if (!call_app_pure.isAPP) {
             window.location.href = href;
             return;
         }
-
+       
+        var endIndex = window.location.href.lastIndexOf('?')
+        if (endIndex >= 0) {
+            var u = window.navigator.userAgent,
+                isWX = u.indexOf('MicroMessenger') > -1,
+                isQQBrowser =u.toLowerCase().match(/QQ/i) == "qq",
+                weiBo = u.toLowerCase().match(/WeiBo/i) == "weibo";
+            // 在站外
+            if (isWX || isQQBrowser || weiBo) {
+                window.location.href = href;
+            }
+        }
         // 上线环境
         // var start=href.lastIndexOf('\/')+1,
         //     end=href.length-1;

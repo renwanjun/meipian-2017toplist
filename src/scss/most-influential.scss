@@ -3,8 +3,7 @@ $images-url:$images-root-url+'/most-influential';
 $header-image:$images-url+'/title_A.png';
 .list.mostInfluential {
     margin-top: -1px;
-    padding-top:1px; 
-
+    padding:1px 0 1px; 
     background-image: url($background-image1);
     .bg {
         background: url($images-root-url+'/most-influential.png') no-repeat;
