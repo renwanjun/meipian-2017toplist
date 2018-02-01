@@ -1,3 +1,4 @@
+'use strict'
 const gulp     = require('gulp'),  
     concat   = require('gulp-concat'),//- 多个文件合并为一个；  
     cleanCSS = require('gulp-clean-css'),//- 压缩CSS为一行；  
