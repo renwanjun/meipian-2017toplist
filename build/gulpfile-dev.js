@@ -1,29 +1,23 @@
-var gulp     = require('gulp'),  
+const gulp     = require('gulp'),  
     concat   = require('gulp-concat'),//- 多个文件合并为一个；  
     cleanCSS = require('gulp-clean-css'),//- 压缩CSS为一行；  
     ugLify   = require('gulp-uglify'),//压缩js  
     imageMin = require('gulp-imagemin'),//压缩图片  
     pngquant = require('imagemin-pngquant'), // 深度压缩  
     htmlMin  = require('gulp-htmlmin'),//压缩html  
-    changed  = require('gulp-changed'),//检查改变状态  
+    changed  = require('gulp-changed'),//检查改变状态,过滤未被修改过的文件 
     sass     = require('gulp-sass'),//压缩合并sass  
     px2rem   = require('gulp-px2rem-plugin'),// 将px转换成rem
     del      = require('del'),
     browserSync = require("browser-sync").create();//浏览器实时刷新  
 
-var config=require("./src/config.json");
+// var config=require("./src/config.json");
+
+const SRC='./src';
+const DEST='./dist';
 
 // 编译sass文件
-gulp.task('scss', function () {
-    // 监视style.scss文件的变化
-    // gulp.watch('css/style.scss', function () {
-    //     gulp.src('src/scss/*.scss')
-    //         .pipe(sass({
-    //             outputStyle: 'expand'
-    //         }))
-    //         .pipe(gulp.dest('css'));
-    // })
-
+gulp.task('scss', function () { 
     gulp.src(['./src/scss/*.scss','!src/scss/*.css']) //多个文件以数组形式传入  
         .pipe(changed('dist/css', {hasChanged: changed.compareSha1Digest}))  
         .pipe(sass({
@@ -51,7 +45,7 @@ gulp.task('html', function () {
         minifyJS: true,//压缩页面JS  
         minifyCSS: true//压缩页面CSS  
     };  
-    gulp.src('src/index.html')  
+    gulp.src(['src/index.html','src/index.php'])  
         .pipe(changed('dist', {hasChanged: changed.compareSha1Digest}))  
         .pipe(htmlMin(options))  
         .pipe(gulp.dest('dist'))  
@@ -71,7 +65,7 @@ gulp.task('less', function () {
   
 //压缩js  
 gulp.task("script",function(){  
-    gulp.src(['src/js/*.js','src/js/jquery-3.3.1.min.js'])  //'src/js/jquery-3.3.1.min.js', 
+    gulp.src(['src/js/*.js'])  //'src/js/jquery-3.3.1.min.js', 
         .pipe(changed('dist/js', {hasChanged: changed.compareSha1Digest}))  
         .pipe(concat('index.js'))  
         .pipe(ugLify())  
@@ -92,14 +86,25 @@ gulp.task('images', function () {
         .pipe(browserSync.reload({stream:true}));  
 });  
 
-gulp.task('rename',function(){
+
+// 为js,html,css,jpg|png|gif|jpeg文件引用添加版本号
+gulp.task('version',function(){
     gulp.src('./src/assets/lib/jquery.3.3.1.min.js')
     .pipe(gulp.dest('dist/assets/lib'))
 })
+
+gulp.task('rename',function(){
+    gulp.src('./src/assets/lib/jquery.3.3.1.min.js')
+    .pipe(rename(function(path){
+        path.basename='jquery.min';
+        path.extname="js";
+    }))
+    .pipe(gulp.dest('./build/assets/lib'))
+})
   
 //启动热更新  
-gulp.task('serve', ['delete'], function() {  
-    gulp.start('script','rename','scss','html');  
+gulp.task('serve', function() {  
+    gulp.start('script','scss','html');  
     browserSync.init({  
         port: 2017,  
         server: {  
@@ -113,3 +118,21 @@ gulp.task('serve', ['delete'], function() {
 });  
 
 gulp.task('default',['serve']);  
+
+function serve(){
+    gulp.start('script','scss','html');  
+    browserSync.init({  
+        port: 2017,  
+        server: {  
+            baseDir: ['dist']  
+        }  
+    });  
+    gulp.watch('src/js/*.js', ['script']);         //监控文件变化，自动更新  
+    gulp.watch('src/scss/*.scss', ['scss']);  
+    gulp.watch('src/*.html', ['html']);  
+    gulp.watch('src/images/*.*', ['images']); 
+};
+
+module.exports={
+    serve:serve
+} 
