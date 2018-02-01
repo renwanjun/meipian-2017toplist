@@ -1,5 +1,5 @@
 
-var call_app_pure = (function(){
+var call_app_pure = (function () {
     var u = navigator.userAgent;
     var isAND = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; // 安卓
     var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
@@ -8,9 +8,11 @@ var call_app_pure = (function(){
     var from = getQueryString('from')
     var isAPP = from === 'appview' || from === 'appviewrcmd'
 
+
+
     function unescape(s) {
         while ((m = s.match(/&(amp|lt|gt|lrm|rlm|nbsp);/))) {
-          s = s.replace(m[0], unescape1);
+            s = s.replace(m[0], unescape1);
         }
         return s;
     }
@@ -88,10 +90,10 @@ var call_app_pure = (function(){
                     }
                 } else if (isAND) {
                     if (isQQBrowser || isWX) {
-                        if(getQueryString("v")){
+                        if (getQueryString("v")) {
                             var androidSchema = 'meipian://main.app/' + type + '/' + id;
                             window.location.href = window.location.origin + '/app/http/download.php?android_schema=' + androidSchema + '&v=' + getQueryString("v") + (params ? '&' + params : '');
-                        }else{
+                        } else {
                             window.location.href = '' + weburl + (params ? '?' + params : '');
                         }
                     } else {
@@ -145,12 +147,81 @@ var call_app_pure = (function(){
             window.android.clickUser(user_id);
         }
     }
-  
+
+    function isappInit() {
+        var u = navigator.userAgent,
+            version = getVersion();
+        if (version && version >= 4.3) {
+            try {
+                var obj = {
+                    title: '2017美篇年度影响力榜单',
+                    desc: '2017美篇年度影响力榜单',
+                    image: 'https://ss2.meipian.me/test/theme/v2/list/images/wx-share-icon.jpg',
+                    url: window.location.href
+                }
+                if (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
+                    // ios
+                    window.webkit.messageHandlers.shareWeb.postMessage(JSON.stringify(obj))
+
+                } else if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+                    //安卓
+                    window.android && window.android.shareWeb(JSON.stringify(obj))
+
+                }
+            } catch (e) {
+
+            }
+        }
+    };
+
+    function getVersion() {
+        var agent = window.navigator.userAgent
+        var type = "",
+            version = 0,
+            versionArr
+
+        if (agent.indexOf('android') / 1 + 1) {
+            type = 'android'
+            var string = agent.slice(agent.indexOf('android/') + 'android/'.length)
+            if (string.length > 0) {
+                versionArr = string.split('.')
+                version = versionArr.join("") / Math.pow(10, versionArr.length - 1)
+            }
+        } else if (agent.indexOf('ios') / 1 + 1) {
+            type = 'ios'
+            var string = agent.slice(agent.indexOf('ios/') + 'ios/'.length)
+            if (string.length > 0) {
+                versionArr = string.split('.')
+                version = versionArr.join("") / Math.pow(10, versionArr.length - 1)
+            }
+        }
+
+        return version
+    }
+    // function getappVersion() {
+    //     //添加获取当前版本号
+    //     $useragent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+    //     $version = '';
+    //     $app_type = '';
+    //     if (strstr($useragent, "android")) { // 获取客户端版本号
+    //         $agent_array = explode("android/", $useragent);
+    //         $version = isset($agent_array[1]) ? $agent_array[1] : '';
+    //         $app_type = 'and';
+    //     } else if (strstr($useragent, "ios")) {
+    //         $agent_array = explode("ios/", $useragent);
+    //         $version = isset($agent_array[1]) ? $agent_array[1] : '';
+    //         $app_type = 'ios';
+    //     }
+    //     $version = explode(".", $version);
+    //     $version = intval(isset($version[0]) ? $version[0] : '') + intval(isset($version[1]) ? $version[1] : '') / 10 + intval(isset($version[2]) ? $version[2] : '') / 100;
+    // }
+
     return {
-       isAPP:isAPP,
-       isWX:isWX, 
-       callappdownload:callappdownload,
-       goArticle:goArticle,
-       goColumn:goColumn
+        isAPP: isAPP,
+        isWX: isWX,
+        callappdownload: callappdownload,
+        goArticle: goArticle,
+        goColumn: goColumn,
+        isappInit: isappInit
     }
 })();

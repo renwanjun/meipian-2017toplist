@@ -1,23 +1,15 @@
-$(document).ready(function () {
-    // var u = navigator.userAgent
-    // // if (version && version < 4.3) {
-    // var obj = {
-    //     title: '我的美篇成长之旅',
-    //     desc: desc,
-    //     image: 'https://ss2.meipian.me/theme/v2/activity/my2017logo.png',
-    //     url: window.location.href
-    // }
-    // if (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
-    //     // ios
-    //     // window.android && window.android.sharePopup(JSON.stringify(obj))
-    //     window.webkit.messageHandlers.sharePopup.postMessage(JSON.stringify(obj))
-    // } else if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
-    //     //安卓
-    //     window.android && window.android.sharePopup(JSON.stringify(obj))
-    // }
-    $("img").click(function (evt) {
-        evt.preventDefault();
-    });
+$(document).ready(function () {   
+    // 网页打开容器
+    if (window.location.href.lastIndexOf('?') >= 0) {
+        var u = window.navigator.userAgent,
+            isWX = u.indexOf('MicroMessenger') > -1,
+            isQQBrowser =u.toLowerCase().match(/QQ/i) == "qq",
+            weiBo = u.toLowerCase().match(/WeiBo/i) == "weibo";
+         // 如果不是在微信、qq、weibo浏览器中，则初始化分享简介
+        if (!isWX && !isQQBrowser &&!weiBo) {
+            call_app_pure.isappInit();
+        }
+    }
     $("img.lazy-load").lazyload({
         effect: "fadeIn", //渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
         threshold: 180, //预加载，在图片距离屏幕180px时提前载入
@@ -33,18 +25,38 @@ $(document).ready(function () {
         // 'failure_limit':2 //加载2张可见区域外的图片,lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况
     });
 
+    // var history=sessionStorage.getItem('tab');
+    // console.log(history);
+    // if(history){
+    //     $('span[href="#'+history+'"]').trigger('click');
+    // //  $('.list-'+history).show();
+    // //  $('.list-'+history).siblings('.list').hide();
+    // }
 
+    $("img").click(function (evt) {
+        evt.preventDefault();
+    });
+    
+    // 根据当前活动页所在环境判断文章、专栏跳转的链接地址参数
+    $('.list-top3 .top,.list-others .item,.list-others-img .author').click(function (evt) {
+        // console.log($(this).children('a').attr('href').trim());
+        goto($(this).children('a'));
+        // $(this).children('a').click();
+    });
     $('a.goto-article,a.goto-column').click(function (evt) {
         evt.preventDefault();
-        var href = $(this).attr('href').trim();
-        var className = $(this).attr('class');
-        
+        evt.stopPropagation();
+        goto(this);
+    });
+
+    function goto(ele){
+        var href = $(ele).attr('href').trim();
+        var className = $(ele).attr('class');
         // 判断是在浏览器中还是在app中
         if (!call_app_pure.isAPP) {
             window.location.href = href;
             return;
         }
-       
         var endIndex = window.location.href.lastIndexOf('?')
         if (endIndex >= 0) {
             var u = window.navigator.userAgent,
@@ -108,7 +120,7 @@ $(document).ready(function () {
         // }else{
         //     window.location.href=call_app_pure.isApp?href:href+"?from=appviewrcmd";
         // }
-    })
+    }
 
     // 在App内部显示，否则不显示
     if (call_app_pure.isAPP) {
@@ -124,7 +136,9 @@ $(document).ready(function () {
     $('.nav').on('click', 'span', function () {
         var href = $(this).attr('href');
         if (!/^\#/.test(href)) return;
+        
         href = href.replace(/\#/, '').trim();
+        sessionStorage.setItem('tab',href);
         var present = $(this).parent().attr('class');
         if (present.indexOf(href) >= 0) return;
         $(this).parent().attr('class', 'nav ' + href);

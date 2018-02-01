@@ -1,3 +1,5 @@
+<?php
+?>
 
 <!DOCTYPE html>
 <html>
@@ -7,8 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>2017美篇年度榜单</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no,minimun-scale=1,maximun-scale=1.0">
-    <link rel="stylesheet" type="text/css" media="screen" href="https://ss2.meipian.me/test/theme/v2/list/main.css?1354792738" />
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="https://ss2.meipian.me/test/theme/v2/list/main.css?1254792734" /> -->
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css" />
 </head>
 
 <body>
@@ -20,14 +22,14 @@
             <img src="https://ss2.meipian.me/test/theme/v2/list/images/leads.png?v1232321">
         </div>
     </div>
-    <!-- <div class="bg1"> -->
+    <div class="bg1">
         <!-- 2017年度影响力美篇 -->
         <div class="list mostInfluential">
             <header class="list-header">
                 <img class="lazy-load" alt="loading" src="https://ss2.meipian.me/theme/theme/img/imagesload.jpg" data-original="https://ss2.meipian.me/test/theme/v2/list/images/most-influential/title_A.png">
             </header>
-            <div class="list-top3 clearfix">
-                <div class="top top2">
+            <div class="list-top3">
+                <div class="top2">
                     <span class="bg-top2">
                         <img class="lazy-load" alt="loading" src="https://ss2.meipian.me/theme/theme/img/imagesload.jpg" data-original="https://ss2.meipian.me/test/theme/v2/list/images/most-influential/avatar_A2.png?v1233">
                     </span>
@@ -36,14 +38,14 @@
                    
                     <a class="goto-article" href="https://www.meipian.cn/nuythxu">去看看>></a>
                 </div>
-                <div class="top top1">
+                <div class="top1">
                     <span class="bg-top1">
                         <img class="lazy-load" alt="loading" src="https://ss2.meipian.me/theme/theme/img/imagesload.jpg" data-original="https://ss2.meipian.me/test/theme/v2/list/images/most-influential/avatar_A1.png">
                     </span>
                     <span class="title">妈妈，为什么没有人救我们</span>
                     <a class="goto-article" href="https://www.meipian.cn/myjqgnn">去看看>></a>
                 </div>
-                <div class="top top3">
+                <div class="top3">
                     <span class="bg-top3">
                         <img class="lazy-load" alt="loading" src="https://ss2.meipian.me/theme/theme/img/imagesload.jpg" data-original="https://ss2.meipian.me/test/theme/v2/list/images/most-influential/avatar_A3.png">
                     </span>
@@ -126,8 +128,8 @@
                 <span class="quality">年度优质作者Top10</span>
             </div>
             <div class="list list-popular">
-                <div class="authors list-top3 clearfix">
-                    <div class="top top2">
+                <div class="authors list-top3">
+                    <div class="top2">
                         <span class="bg-top2">
                             <img class="lazy-load" border="0" alt="loading" src="https://ss2.meipian.me/theme/theme/img/imagesload.jpg" data-original="https://ss2.meipian.me/test/theme/v2/list/images/influential-author/B1/avatar_B2.png">
                         </span>
@@ -138,7 +140,7 @@
                         </span>
                         <a class="goto-column" href="https://www.meipian.cn/c/2648031">去看看>></a>
                     </div>
-                    <div class="top top1">
+                    <div class="top1">
                         <span class="bg bg-top1">
                             <img class="lazy-load" border="0" alt="loading" src="https://ss2.meipian.me/theme/theme/img/imagesload.jpg" data-original="https://ss2.meipian.me/test/theme/v2/list/images/influential-author/B1/avatar_B1.png">
                         </span>
@@ -149,7 +151,7 @@
                         </span>
                         <a class="goto-column" href="https://www.meipian.cn/c/2040790">去看看>></a>
                     </div>
-                    <div class="top top3">
+                    <div class="top3">
                         <span class="bg bg-top3">
                             <img class="lazy-load" border="0" alt="loading" src="https://ss2.meipian.me/theme/theme/img/imagesload.jpg" data-original="https://ss2.meipian.me/test/theme/v2/list/images/influential-author/B1/avatar_B3.png">
                         </span>
@@ -239,8 +241,8 @@
                 </div>
             </div>
             <div class="list list-ajective" style="display:none;">
-                <div class="authors list-top3 clearfix">
-                    <div class="top top2">
+                <div class="authors list-top3">
+                    <div class="top2">
                         <span class="bg bg-top2">
                             <img class="lazy-load" border="0" src="https://ss2.meipian.me/theme/theme/img/imagesload.jpg" data-original="https://ss2.meipian.me/test/theme/v2/list/images/influential-author/B2/avatar_B2.png">
                         </span>
@@ -251,7 +253,7 @@
                         </span>
                         <a class="goto-column" href="https://www.meipian.cn/c/813799">去看看>></a>
                     </div>
-                    <div class="top top1">
+                    <div class="top1">
                         <span class="bg bg-top1">
                             <img class="lazy-load" border="0" src="https://ss2.meipian.me/theme/theme/img/imagesload.jpg" data-original="https://ss2.meipian.me/test/theme/v2/list/images/influential-author/B2/avatar_B1.png">
                         </span>
@@ -262,7 +264,7 @@
                         </span>
                         <a class="goto-column" href="https://www.meipian.cn/c/4400673">去看看>></a>
                     </div>
-                    <div class="top top3">
+                    <div class="top3">
                         <span class="bg bg-top3">
                             <img class="lazy-load" border="0" src="https://ss2.meipian.me/theme/theme/img/imagesload.jpg" data-original="https://ss2.meipian.me/test/theme/v2/list/images/influential-author/B2/avatar_B3.png">
                         </span>
@@ -352,8 +354,8 @@
                 </div>
             </div>
             <div class="list list-quality" style="display:none;">
-                <div class="authors list-top3 clearfix">
-                    <div class="top top2">
+                <div class="authors list-top3">
+                    <div class="top2">
                         <span class="bg bg-top2">
                             <img class="lazy-load" border="0" src="https://ss2.meipian.me/theme/theme/img/imagesload.jpg" data-original="https://ss2.meipian.me/test/theme/v2/list/images/influential-author/B3/avatar_B2.png">
                         </span>
@@ -363,7 +365,7 @@
                         </span>
                         <a class="goto-column" href="https://www.meipian.cn/c/638555">去看看>></a>
                     </div>
-                    <div class="top top1">
+                    <div class="top1">
                         <span class="bg bg-top1">
                             <img class="lazy-load" border="0" src="https://ss2.meipian.me/theme/theme/img/imagesload.jpg" data-original="https://ss2.meipian.me/test/theme/v2/list/images/influential-author/B3/avatar_B1.png">
                         </span>
@@ -373,7 +375,7 @@
                         </span>
                         <a class="goto-column" href="https://www.meipian.cn/c/606427">去看看>></a>
                     </div>
-                    <div class="top top3">
+                    <div class="top3">
                         <span class="bg bg-top3">
                             <img class="lazy-load" border="0" src="https://ss2.meipian.me/theme/theme/img/imagesload.jpg" data-original="https://ss2.meipian.me/test/theme/v2/list/images/influential-author/B3/avatar_B3.png">
                         </span>
@@ -462,11 +464,9 @@
                     </ul>
                 </div>
             </div>
-            <p class="standard">
-                向右滑动查看更多
-            </p>
+
         </div>
-    <!-- </div> -->
+    </div>
 
 
     <!-- 2017美篇年度作品 -->
@@ -483,7 +483,7 @@
             <span class="topic">年度话题性作品Top10</span>
         </div>
         <div class="list list-spread">
-            <div class="list-top3 clearfix">
+            <div class="list-top3">
                 <div class="top">
                     <span class="bg bg-top2">
                         <img class="lazy-load" border="0" alt="loading" src="https://ss2.meipian.me/theme/theme/img/imagesload.jpg" data-original="https://ss2.meipian.me/test/theme/v2/list/images/mp-works/C1/avatar_C2.png">
@@ -610,7 +610,7 @@
 
         </div>
         <div class="list list-topic" style="display:none;">
-            <div class="list-top3 clearfix">
+            <div class="list-top3">
                 <div class="top">
                     <span class="bg bg-top2">
                         <img class="lazy-load" border="0" alt="loading" src="https://ss2.meipian.me/theme/theme/img/imagesload.jpg" data-original="https://ss2.meipian.me/test/theme/v2/list/images/mp-works/C2/avatar_C2.png">
@@ -846,8 +846,8 @@
     <!-- <script src="https://ss2.meipian.me/test/theme/v2/list/js/swiper-4.1.0.js"></script> -->
     <!-- <script src="./assets/lib/jquery.lazyload.js"></script> -->
 
-    <!-- <script src="./js/index.js"></script> -->
-    <script src="https://ss2.meipian.me/test/theme/v2/list/js/index.js?v17953275463"></script>
+    <script src="./js/index.js"></script>
+    <!-- <script src="https://ss2.meipian.me/test/theme/v2/list/js/index.js?v16351378473"></script> -->
 </body>
 
 </html>

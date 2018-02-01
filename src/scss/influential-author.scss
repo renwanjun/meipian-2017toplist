@@ -1,170 +1,184 @@
-@import './common-variables.scss';
-$images-url:$images-root-url+'/influential-author';
-$header-image:$images-url+'/title_B.png';
-$popular-url:$images-url+'/B1';
-$ajective-url:$images-url+'/B2';
-$quality-url:$images-url+'/B3';
-@function author-img($type, $order) {
-    @if $type=='popular' {
-        @return $popular-url+'/avatar_B'+$order+'.png';
+    @import './common-variables.scss';
+    $images-url:$images-root-url+'/influential-author';
+    $header-image:$images-url+'/title_B.png';
+    $popular-url:$images-url+'/B1';
+    $ajective-url:$images-url+'/B2';
+    $quality-url:$images-url+'/B3';
+    @function author-img($type, $order) {
+        @if $type=='popular' {
+            @return $popular-url+'/avatar_B'+$order+'.png';
+        }
+        @if $type=='ajective' {
+            @return $ajective-url+'/avatar_B'+$order+'.png';
+        }
+        @if $type=='quality' {
+            @return $quality-url+'/avatar_B'+$order+'.png';
+        }
     }
-    @if $type=='ajective' {
-        @return $ajective-url+'/avatar_B'+$order+'.png';
-    }
-    @if $type=='quality' {
-        @return $quality-url+'/avatar_B'+$order+'.png';
-    }
-}
 
-.list.influentialauthor {
-    background-image: url($background-image2); // 标题
-    padding-top: px2rem(150px);
-    .list-header {
-        // background-image: url($header-image);
-    } // 导航
-    .nav {
-        width: px2rem(685px);
-        height: px2rem(67px);
-        margin: px2rem(35px) auto px2rem(30px);
-        background-size: 100% 100%;
-        display: flex;
-        display: -webkit-flex;
-        -webkit-box-flex: 3;
-        -ms-flex: 3;
-        flex: 3;
-        justify-content: space-between;
-        &.popular {
-            background-image: url($popular-url+'/tab_B1.png');
-        }
-        &.ajective {
-            background-image: url($ajective-url+'/tab_B2.png');
-        }
-        &.quality {
-            background-image: url($quality-url+'/tab_B3.png');
-        }
-        .href {
-            flex-grow: 1;
-        }
-    } // 排行榜标题2
-    .list-h2 {
-        width: 100%;
-        text-align: center;
-        margin: px2rem(20px) auto;
-        color: #D3B368;
-        font-size: px2rem(32px);
-        line-height: px2rem(48px);
-        span:not(:first-child) {
-            display: none;
-        }
-    } // 作者头像、粉丝数、文章链接信息
-    .verb {
-        margin: px2rem(24px) auto px2rem(20px);
-        width: px2rem(210px);
-        height: px2rem(78px);
-        text-align: center;
-    }
-    .name {
-        font-size: px2rem(28px);
-        color: #FFEEBA;
-        line-height: px2rem(39px);
-    }
-    .fans {
-        font-size: px2rem(26px);
-        color: #D3B368;
-        line-height: px2rem(40px);
-    }
-    .authors>div,
-    li {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        position: relative;
-        cursor: pointer;
-        color: currentColor;
-    } // top3 
-    .list-top3 {
-        display: flex;
-        display: -webkit-flex;
-        -webkit-box-flex: 3;
-        -ms-flex: 3;
-        flex: 3;
-        margin: px2rem(40px) px2rem(30px);
-        color: #FFEEBA;
-    }
-    .bg-top2 {
-        margin-top: px2rem(103px);
-        width: px2rem(148px);
-        height: px2rem(202px);
-        // background: url(author-img('popular', 2)) no-repeat;
-        // background-size: 100% 100%;
-    }
-    .bg-top1 {
-        margin-top: px2rem(0px);
-        width: px2rem(165px);
-        height: px2rem(224px);
-        // background: url(author-img('popular', 1)) no-repeat;
-        // background-size: 100% 100%;
-    }
-    .bg-top3 {
-        margin-top: px2rem(103px);
-        width: px2rem(148px);
-        height: px2rem(202px);
-        // background: url(author-img('popular', 3)) no-repeat;
-        // background-size: 100% 100%;
-    } // 榜单剩余排名
-    .list-others-img {
-        width: 100%;
-        overflow-x: scroll;
-        margin: px2rem(60px) 0 0;
-        .authors {
+    .list.influentialauthor {
+        background-image: url($background-image2); // 标题
+        padding-top: px2rem(150px);
+        .list-header {
+            // background-image: url($header-image);
+        } // 导航
+        .nav {
+            width: px2rem(685px);
+            height: px2rem(67px);
+            margin: px2rem(35px) auto px2rem(30px);
+            background-size: 100% 100%;
             display: flex;
             display: -webkit-flex;
-            -webkit-box-flex: 7;
-            -ms-flex: 7;
-            flex: 7;
-            padding: 0 1.625rem;
-            width: fit-content;
-        }
-    }
-    .author {
-        // margin-right: px2rem(10px);
+            -webkit-box-flex: 3;
+            -ms-flex: 3;
+            flex: 3;
+            justify-content: space-between;
+            &.popular {
+                background-image: url($popular-url+'/tab_B1.png');
+            }
+            &.ajective {
+                background-image: url($ajective-url+'/tab_B2.png');
+            }
+            &.quality {
+                background-image: url($quality-url+'/tab_B3.png');
+            }
+            .href {
+                flex-grow: 1;
+            }
+        } // 排行榜标题2
+        .list-h2 {
+            width: 100%;
+            text-align: center;
+            margin: px2rem(20px) auto;
+            color: #D3B368;
+            font-size: px2rem(32px);
+            line-height: px2rem(48px);
+            span:not(:first-child) {
+                display: none;
+            }
+        } // 作者头像、粉丝数、文章链接信息
         .verb {
-            height: auto;
-            width: px2rem(168px);
-            margin-bottom: px2rem(18px);
+            margin: px2rem(24px) auto px2rem(20px);
+            width: px2rem(210px);
+            height: px2rem(78px);
+            text-align: center;
         }
-        .bg {
-            width: px2rem(100px);
-            height: px2rem(140px); 
-            // background:url(author-img('popular', 4)) no-repeat; 
-            // background-size:100% 100%;
+        .name {
+            font-size: px2rem(28px);
+            color: #FFEEBA;
+            line-height: px2rem(39px);
+        }
+        .fans {
+            font-size: px2rem(26px);
+            color: #D3B368;
+            line-height: px2rem(40px);
+        } // top3 
+        .list-top3 {
+            margin: px2rem(40px) px2rem(30px);
+            .top {
+                height: px2rem(480px);
+            }
+        }
+        .bg-top2 {
+            margin-top: px2rem(103px);
+            width: px2rem(148px);
+            height: px2rem(202px); // background: url(author-img('popular', 2)) no-repeat;
+            // background-size: 100% 100%;
+        }
+        .bg-top1 {
+            margin-top: px2rem(0px);
+            width: px2rem(165px);
+            height: px2rem(224px); // background: url(author-img('popular', 1)) no-repeat;
+            // background-size: 100% 100%;
+        }
+        .bg-top3 {
+            margin-top: px2rem(103px);
+            width: px2rem(148px);
+            height: px2rem(202px); // background: url(author-img('popular', 3)) no-repeat;
+            // background-size: 100% 100%;
+        } // 榜单剩余排名
+        .list-others-img {
+            position: relative;
+            width: 100%;
+            padding: px2rem(40px) 0 px2rem(30px);
+            overflow-x: hidden;
+            margin: px2rem(20px) 0 0;
+            &:after {
+                position: absolute;
+                display: block;
+                content: '';
+                width: px2rem(125px);
+                height: px2rem(358px);
+                float: right;
+                right: 0px;
+                top: 0px;
+                z-index: 1;
+                background-image: url(https://ss2.meipian.me/test/theme/v2/list/images/bian.png);
+                background-size: 100% 100%; // background-attachment: fixed;
+            }
+            .authors {
+                position: relative;
+                overflow-x: scroll;
+                display: flex;
+                display: -webkit-flex;
+                -webkit-box-flex: 7;
+                -ms-flex: 7;
+                flex: 7;
+                padding: 0 1.625rem; // width: fit-content;
+            }
+            .author {
+                // width: px2rem(120px);
+                // margin-right: px2rem(10px);
+                .verb {
+                    margin-bottom: px2rem(18px);
+                    .name {
+                        margin:0 auto;
+                        width: px2rem(146px);
+                        text-align: center;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                }
+                .bg {
+                    width: px2rem(100px);
+                    height: px2rem(140px); // background:url(author-img('popular', 4)) no-repeat; 
+                    // background-size:100% 100%;
+                }
+            } // $i: 1;
+            // @while $i < 11 {
+            //     .list-popular .bg-top#{$i} {
+            //         background: url(author-img('popular', $i)) no-repeat;
+            //         background-size: 100% 100%;
+            //     }
+            //     .list-ajective .bg-top#{$i} {
+            //         background: url(author-img('ajective', $i)) no-repeat;
+            //         background-size: 100% 100%;
+            //     }
+            //     .list-quality .bg-top#{$i} {
+            //         background: url(author-img('quality', $i)) no-repeat;
+            //         background-size: 100% 100%;
+            //     }
+            //     $i: $i+1;
+            // }
+        }
+        .standard {
+            margin: .5rem auto 0;
+            width: 20.9375rem;
+            font-size: .75rem;
+            height: px2rem(36px);
+            line-height: px2rem(36px);
+            color: #d3b368;
+            text-align: center;
+            &:before {
+                display: inline-block;
+                vertical-align: bottom;
+                margin-right: px2rem(4px);
+                content: "";
+                width: px2rem(36px);
+                height: px2rem(36px);
+                background-image: url(https://ss2.meipian.me/test/theme/v2/list/images/left-scroll.png);
+                background-size: 100% 100%;
+            }
         }
     }
-    // $i: 1;
-    // @while $i < 11 {
-    //     .list-popular .bg-top#{$i} {
-    //         background: url(author-img('popular', $i)) no-repeat;
-    //         background-size: 100% 100%;
-    //     }
-    //     .list-ajective .bg-top#{$i} {
-    //         background: url(author-img('ajective', $i)) no-repeat;
-    //         background-size: 100% 100%;
-    //     }
-    //     .list-quality .bg-top#{$i} {
-    //         background: url(author-img('quality', $i)) no-repeat;
-    //         background-size: 100% 100%;
-    //     }
-    //     $i: $i+1;
-    // }
-   
-}
