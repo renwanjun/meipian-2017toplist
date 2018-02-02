@@ -29,7 +29,7 @@ gulp.task('scss', function () {
             browsers: ['last 5 versions', '>1%']
         }))
         .pipe(concat('main.css'))//合并之后生成main.css  
-        .pipe(cleanCSS())//压缩新生成的css  
+        // .pipe(cleanCSS())//压缩新生成的css  
         .pipe(gulp.dest('dist/css'))//将会在css下生成main.css  
         .pipe(browserSync.reload({ stream: true }));
 })

@@ -217,10 +217,13 @@ var call_app_pure = (function () {
 
     return {
         isAPP: isAPP,
+        isIOS:isIOS,
+        isAND:isAND,
         isWX: isWX,
         callappdownload: callappdownload,
         goArticle: goArticle,
         goColumn: goColumn,
-        isappInit: isappInit
+        isappInit: isappInit,
+        getVersion:getVersion
     }
 })();

@@ -1,12 +1,12 @@
-$(document).ready(function () {   
+$(document).ready(function () {
     // 网页打开容器
     if (window.location.href.lastIndexOf('?') >= 0) {
         var u = window.navigator.userAgent,
             isWX = u.indexOf('MicroMessenger') > -1,
-            isQQBrowser =u.toLowerCase().match(/QQ/i) == "qq",
+            isQQBrowser = u.toLowerCase().match(/QQ/i) == "qq",
             weiBo = u.toLowerCase().match(/WeiBo/i) == "weibo";
-         // 如果不是在微信、qq、weibo浏览器中，则初始化分享简介
-        if (!isWX && !isQQBrowser &&!weiBo) {
+        // 如果不是在微信、qq、weibo浏览器中，则初始化分享简介
+        if (!isWX && !isQQBrowser && !weiBo) {
             call_app_pure.isappInit();
         }
     }
@@ -36,20 +36,60 @@ $(document).ready(function () {
     $("img").click(function (evt) {
         evt.preventDefault();
     });
-    
+
     // 根据当前活动页所在环境判断文章、专栏跳转的链接地址参数
-    $('.list-top3 .top,.list-others .item,.list-others-img .author,.authors .author').click(function (evt) {
+    $('.list-top3 .top,.list-others .items .item,.list-others-img .author,.authors .author').click(function (evt) {
         // console.log($(this).children('a').attr('href').trim());
-        goto($(this).children('a'));
+        goto($(this).find('a'));
         // $(this).children('a').click();
     });
     $('a.goto-article,a.goto-column').click(function (evt) {
         evt.preventDefault();
-        evt.stopPropagation();
-        goto(this);
+        // evt.stopPropagation();
+        // goto(this);
     });
 
-    function goto(ele){
+    // albanjin  添加事件 取消浮ceng
+
+    (function () {
+        $(".page10 .cancle-btn").click(function () {
+            $('.page10').css('display', 'none')
+        })
+        $(".page10 .update-btn").click(function () {
+            alert("更新地址")
+        })
+    })()
+
+
+
+    function goto(ele) {
+        // albanjin 2018-02-02
+        var version = call_app_pure.getVersion()
+
+        var isIOS = call_app_pure.isIOS,
+            isAPP = call_app_pure.isAPP,
+            isAND = call_app_pure.isAND
+        
+           
+
+        // var  version = 4.3
+
+        //    var isIOS = true,
+        //         isAPP = true,
+        //         isAND = false
+
+
+        // $('.page10 .fix-box-top').html("version" + version + "isIOS" + isIOS + "isAPP" + isAPP + "isAND" + isAND);
+
+        // if (isAPP && (isIOS <= 4.3 || isAND < 4.3)) {
+        //     $(".page10").css('display', 'block')
+        //     return
+        // }
+
+        if (isAPP && ((isIOS && version <= 4.3) || (isAND && version < 4.3))) {
+            $(".page10").css('display', 'block')
+            return
+        }
         var href = $(ele).attr('href').trim();
         var className = $(ele).attr('class');
         // 判断是在浏览器中还是在app中
@@ -61,7 +101,7 @@ $(document).ready(function () {
         if (endIndex >= 0) {
             var u = window.navigator.userAgent,
                 isWX = u.indexOf('MicroMessenger') > -1,
-                isQQBrowser =u.toLowerCase().match(/QQ/i) == "qq",
+                isQQBrowser = u.toLowerCase().match(/QQ/i) == "qq",
                 weiBo = u.toLowerCase().match(/WeiBo/i) == "weibo";
             // 在站外
             if (isWX || isQQBrowser || weiBo) {
@@ -136,9 +176,9 @@ $(document).ready(function () {
     $('.nav').on('click', 'span', function () {
         var href = $(this).attr('href');
         if (!/^\#/.test(href)) return;
-        
+
         href = href.replace(/\#/, '').trim();
-        sessionStorage.setItem('tab',href);
+        sessionStorage.setItem('tab', href);
         var present = $(this).parent().attr('class');
         if (present.indexOf(href) >= 0) return;
         $(this).parent().attr('class', 'nav ' + href);
@@ -158,7 +198,7 @@ $(document).ready(function () {
         //     effect: "fadeIn", //渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
         //     container: $next, // 指定对某容器中的图片实现效果
         // });
-    
+
     });
 
     $('.footer').click(function () {

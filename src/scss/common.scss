@@ -7,6 +7,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "PingFangSC-Regular";
+    //height: 100%
 }
 
 body {
@@ -294,4 +295,69 @@ img {
     height: px2rem(104px);
     background: url($images-root-url+'/footer.png') no-repeat;
     background-size: 100% 100%;
+}
+
+$browser-default-font-size: 75px !default;
+@function Torem($px) {
+    @return $px  / $browser-default-font-size * 1rem;
+}
+
+
+//弹框
+.page10 {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    .fix-box {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        // width: Torem(540px / 2);
+        // height: Torem(268px / 2);
+        width: px2rem(540px);
+        height: px2rem(268px);
+        background: #fff;
+        border-radius: px2rem(26px);
+        transform: translate(-50%, -50%);
+        text-align: center;
+        .fix-box-top {
+            // width: 100%;
+            // height: px2rem(168px);
+            padding: px2rem(30px) px2rem(40px);
+            font-family: PingFangSC-Regular;
+            font-size: px2rem(36px);
+            color: #333333;
+            letter-spacing: 0;
+            line-height: px2rem(54px);
+            border-bottom: 1px solid #D7D9DE;
+        }
+        .fix-box-bottom {
+            width: 100%;
+            height: px2rem(100px);
+            position: relative;
+            .update-btn,
+            .cancle-btn {
+                text-align: center;
+                width: 50%;
+                height: px2rem(100px);
+                border-right: 1px solid #D7D9DE;
+                font-family: PingFangSC-Regular;
+                font-size: px2rem(36px);
+                color: #333333;
+                letter-spacing: 0;
+                line-height: px2rem(100px);
+            }
+            .update-btn {
+                position: absolute;
+                right: 0;
+                top: 0;
+                color: #2F92FF;
+                border-right: none;
+            }
+        }
+    }
 }
