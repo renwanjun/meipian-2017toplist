@@ -40,13 +40,14 @@ img {
     display: table;
     content: " ";
 }
+
 .clearfix:after {
     clear: both;
 }
-.clearfix{
+
+.clearfix {
     *zoom: 1;
 }
-
 
 .limit-txt {
     overflow: hidden;
@@ -69,16 +70,13 @@ img {
 //     background-size:100%;
 //     background-repeat: repeat-y; 
 // }
-
 .list {
     width: 100%;
     margin: -1px auto 0;
     background-size: 100% 100%;
-    background-repeat: no-repeat;
-    // padding-bottom: 1px;
+    background-repeat: no-repeat; // padding-bottom: 1px;
     img {
-        width: 100%;
-        height: 100%;
+        width: 100%; // height: 100%;
     }
 }
 
@@ -99,8 +97,9 @@ img {
 //         }
 //     }
 // }
-.top,.author{
-    position: relative;   
+.top {
+    position: relative; // width: px2rem(168px);
+    text-align: center;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -114,28 +113,29 @@ img {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    position: relative;
-    cursor: pointer;
-    color: currentColor;
+    // cursor: pointer;
+    // color: currentColor;
 }
-//-------------------flex布局-----------------------//
 
+//-------------------flex布局-----------------------//
 //-------------------float布局-----------------------//
 // top3样式
 .list-top3 {
     position: relative;
-    
-    color: #FFEEBA;
-    // font-family: "PingFangSC-Light";
-    .top{
+    color: #FFEEBA; // font-family: "PingFangSC-Light";
+    .top {
         float: left;
         width: 33.3333%;
-        a{
+        a {
             position: absolute;
+            display: block;
             bottom: 0;
+            text-align: center;
+            width: 100%
         }
     }
 }
+
 // .top,.author{
 //     position: relative;   
 //     text-align: center;
@@ -153,7 +153,6 @@ img {
 //     *zoom: 1;
 // }
 //-------------------float布局-----------------------//
-
 // 榜单标题
 .list-header {
     $padding: 9px;
@@ -247,8 +246,7 @@ img {
 //-----------------end---------------------//
 .list.first {
     position: relative;
-    padding-bottom: 0px;
-    // min-height: px2rem(990px);
+    padding-bottom: 0px; // min-height: px2rem(990px);
     // width: 100%;
     // width: 375px;
     // height: 132%;
@@ -256,9 +254,9 @@ img {
     .first-bg {
         width: 100%;
         height: 0;
-        padding-top:132%; 
+        padding-top: 132%;
         background-image: url($images-root-url+'/bg_top.jpg?v1221');
-        background-size:100% 100%; 
+        background-size: 100% 100%;
     }
     .first-lead {
         position: absolute; // top: px2rem(678px);

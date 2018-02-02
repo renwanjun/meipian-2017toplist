@@ -173,7 +173,6 @@ var call_app_pure = (function () {
             }
         }
     };
-
     function getVersion() {
         var agent = window.navigator.userAgent
         var type = "",

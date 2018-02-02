@@ -23,12 +23,12 @@ $topic-url:$images-url+'/C2';
         height: px2rem(67px);
         margin: px2rem(35px) auto px2rem(30px);
         background-size: 100% 100%;
-        display: flex;
-        display: -webkit-flex;
-        -webkit-box-flex: 3;
-        -ms-flex: 3;
-        flex: 3;
-        justify-content: space-between;
+        // display: flex;
+        // display: -webkit-flex;
+        // -webkit-box-flex: 3;
+        // -ms-flex: 3;
+        // flex: 3;
+        // justify-content: space-between;
         &.spread {
             background-image: url($spread-url+'/tab_C1.png');
         }
@@ -36,7 +36,10 @@ $topic-url:$images-url+'/C2';
             background-image: url($topic-url+'/tab_C2.png');
         }
         .href {
-            flex-grow: 1;
+            display: inline-block;
+            width: 49%;
+            height: px2rem(67px);
+            // flex-grow: 1;
         }
     } 
     // 排行榜标题2
@@ -66,7 +69,7 @@ $topic-url:$images-url+'/C2';
         text-align: center;
     }
     
-    .index {
+    .spread-index {
         color: #D3B368;
         font-family: "PingFangSC-Light";
         font-size: px2rem(26px);

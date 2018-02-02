@@ -38,7 +38,7 @@ $(document).ready(function () {
     });
     
     // 根据当前活动页所在环境判断文章、专栏跳转的链接地址参数
-    $('.list-top3 .top,.list-others .item,.list-others-img .author').click(function (evt) {
+    $('.list-top3 .top,.list-others .item,.list-others-img .author,.authors .author').click(function (evt) {
         // console.log($(this).children('a').attr('href').trim());
         goto($(this).children('a'));
         // $(this).children('a').click();

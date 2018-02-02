@@ -27,12 +27,12 @@
             height: px2rem(67px);
             margin: px2rem(35px) auto px2rem(30px);
             background-size: 100% 100%;
-            display: flex;
-            display: -webkit-flex;
-            -webkit-box-flex: 3;
-            -ms-flex: 3;
-            flex: 3;
-            justify-content: space-between;
+            // display: flex;
+            // display: -webkit-flex;
+            // -webkit-box-flex: 3;
+            // -ms-flex: 3;
+            // flex: 3;
+            // justify-content: space-between;
             &.popular {
                 background-image: url($popular-url+'/tab_B1.png');
             }
@@ -43,7 +43,10 @@
                 background-image: url($quality-url+'/tab_B3.png');
             }
             .href {
-                flex-grow: 1;
+                display: inline-block;
+                width: 32%;
+                height: px2rem(67px);
+                // flex-grow: 1;
             }
         } // 排行榜标题2
         .list-h2 {
@@ -57,12 +60,12 @@
                 display: none;
             }
         } // 作者头像、粉丝数、文章链接信息
-        .verb {
-            margin: px2rem(24px) auto px2rem(20px);
-            width: px2rem(210px);
-            height: px2rem(78px);
-            text-align: center;
-        }
+        // .verb {
+        //     margin: px2rem(24px) auto px2rem(20px);
+        //     width: px2rem(210px);
+        //     height: px2rem(78px);
+        //     text-align: center;
+        // }
         .name {
             font-size: px2rem(28px);
             color: #FFEEBA;
@@ -77,6 +80,12 @@
             margin: px2rem(40px) px2rem(30px);
             .top {
                 height: px2rem(480px);
+            }
+            .verb {
+                margin: px2rem(24px) auto px2rem(20px);
+                width: px2rem(210px);
+                height: px2rem(78px);
+                text-align: center;
             }
         }
         .bg-top2 {
@@ -103,37 +112,51 @@
             padding: px2rem(40px) 0 px2rem(30px);
             overflow-x: hidden;
             margin: px2rem(20px) 0 0;
-            &:after {
-                position: absolute;
-                display: block;
-                content: '';
-                width: px2rem(125px);
-                height: px2rem(358px);
-                float: right;
-                right: 0px;
-                top: 0px;
-                z-index: 1;
-                background-image: url(https://ss2.meipian.me/test/theme/v2/list/images/bian.png);
-                background-size: 100% 100%; // background-attachment: fixed;
-            }
+            //overflow: hidden;
+            overflow-x: scroll;
+            // &:after {
+            //     position: absolute;
+            //     display: block;
+            //     content: '';
+            //     width: px2rem(125px);
+            //     height: px2rem(358px);
+            //     float: right;
+            //     right: 0px;
+            //     top: 0px;
+            //     z-index: 1;
+            //     background-image: url(https://ss2.meipian.me/test/theme/v2/list/images/bian.png);
+            //     background-size: 100% 100%; // background-attachment: fixed;
+            // }
             .authors {
                 position: relative;
-                overflow-x: scroll;
-                display: flex;
-                display: -webkit-flex;
-                -webkit-box-flex: 7;
-                -ms-flex: 7;
-                flex: 7;
+               
+                // display: flex;
+                // display: -webkit-flex;
+                // -webkit-box-flex: 7;
+                // -ms-flex: 7;
+                // flex: 7;
+                //width: px2rem(160px * 8 - 10px);
+                width: px2rem(1130px);
                 padding: 0 1.625rem; // width: fit-content;
             }
+
             .author {
-                // width: px2rem(120px);
-                // margin-right: px2rem(10px);
+                display: inline-block;
+                text-align: center;
+                span,
+                a {
+                    display: inline-block;
+                    text-align: center;
+                }
                 .verb {
                     margin-bottom: px2rem(18px);
+                    margin-right: px2rem(15px);
+                    width: px2rem(145px);
+                    height: px2rem(78px);
+                    text-align: center;
                     .name {
-                        margin:0 auto;
-                        width: px2rem(146px);
+                        margin: 0 auto;
+                        // width: px2rem(126px);
                         text-align: center;
                         overflow: hidden;
                         text-overflow: ellipsis;
