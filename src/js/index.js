@@ -1,5 +1,8 @@
 $(document).ready(function(){
-
+    console.log(
+        window.devicePixelRatio,
+        window.screen.width
+    );
   
     window.location.hash="spread";
 

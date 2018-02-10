@@ -46,7 +46,8 @@ $quality-url:$images-url+'/B3';
         }
     } // 排行榜标题2
     .list-h2 {
-        width: px2rem(282px);
+        width: 100%;
+        text-align: center;
         margin: px2rem(20px) auto;
         color: #D3B368;
         font-size: px2rem(32px);

@@ -8,6 +8,7 @@ $topic-url:$images-url+'/C2';
 }
 
 .list.mpusers {
+    margin-top:-1px;
     background-image: url($background-image2); // 标题
     .list-header {
         background-image: url($header-image);
