@@ -8,10 +8,11 @@ $topic-url:$images-url+'/C2';
 }
 
 .list.mpusers {
-    margin-top:-1px;
+
+    margin-top: -1px;
     background-image: url($background-image2); // 标题
     .list-header {
-        background-image: url($header-image);
+        // background-image: url($header-image);
     } // 导航
     .authors {
         display: flex;
@@ -40,14 +41,14 @@ $topic-url:$images-url+'/C2';
         margin:0 0 px2rem(50px);
         // margin:px2rem(50px) px2rem(0);
     }
-    $i: 1;
-    @while $i < 11 {
-        .author .bg-top#{$i} {
-            background: url(author-img($i)) no-repeat;
-            background-size: 100% 100%;
-        }
-        $i: $i+1;
-    }
+    // $i: 1;
+    // @while $i < 11 {
+    //     .author .bg-top#{$i} {
+    //         background: url(author-img($i)) no-repeat;
+    //         background-size: 100% 100%;
+    //     }
+    //     $i: $i+1;
+    // }
     .bg {
         width: px2rem(100px);
         height: px2rem(140px);

@@ -129,10 +129,28 @@ var call_app_pure = (function(){
             }
         }, t);
     }
+
+    function goArticle(mask_id) {
+        if (window.webkit && window.webkit.messageHandlers) {
+            window.webkit.messageHandlers.openArticle.postMessage(mask_id);
+        } else if (window.android) {
+            window.android.openArticle(mask_id);
+        }
+    }
+
+    function goColumn(user_id) {
+        if (window.webkit && window.webkit.messageHandlers) {
+            window.webkit.messageHandlers.clickUser.postMessage(user_id);
+        } else if (window.android) {
+            window.android.clickUser(user_id);
+        }
+    }
   
     return {
        isAPP:isAPP,
        isWX:isWX, 
-       callappdownload:callappdownload
+       callappdownload:callappdownload,
+       goArticle:goArticle,
+       goColumn:goColumn
     }
 })();

@@ -19,12 +19,12 @@ $quality-url:$images-url+'/B3';
 .list.influentialauthor {
     background-image: url($background-image2); // 标题
     .list-header {
-        background-image: url($header-image);
+        // background-image: url($header-image);
     } // 导航
     .nav {
         width: px2rem(685px);
         height: px2rem(67px);
-        margin: px2rem(35px) px2rem(43px) px2rem(30px);
+        margin: px2rem(35px) auto px2rem(30px);
         background-size: 100% 100%;
         display: flex;
         display: -webkit-flex;
@@ -104,22 +104,22 @@ $quality-url:$images-url+'/B3';
         margin-top: px2rem(103px);
         width: px2rem(148px);
         height: px2rem(202px);
-        background: url(author-img('popular', 2)) no-repeat;
-        background-size: 100% 100%;
+        // background: url(author-img('popular', 2)) no-repeat;
+        // background-size: 100% 100%;
     }
     .bg-top1 {
         margin-top: px2rem(0px);
         width: px2rem(165px);
         height: px2rem(224px);
-        background: url(author-img('popular', 1)) no-repeat;
-        background-size: 100% 100%;
+        // background: url(author-img('popular', 1)) no-repeat;
+        // background-size: 100% 100%;
     }
     .bg-top3 {
         margin-top: px2rem(103px);
         width: px2rem(148px);
         height: px2rem(202px);
-        background: url(author-img('popular', 3)) no-repeat;
-        background-size: 100% 100%;
+        // background: url(author-img('popular', 3)) no-repeat;
+        // background-size: 100% 100%;
     } // 榜单剩余排名
     .list-others-img {
         width: 100%;
@@ -136,34 +136,35 @@ $quality-url:$images-url+'/B3';
         }
     }
     .author {
-        margin-right: px2rem(10px);
+        // margin-right: px2rem(10px);
         .verb {
             height: auto;
-            width: px2rem(150px);
+            width: px2rem(168px);
             margin-bottom: px2rem(18px);
         }
         .bg {
             width: px2rem(100px);
-            height: px2rem(140px); // background:url(author-img('popular', 4)) no-repeat; 
+            height: px2rem(140px); 
+            // background:url(author-img('popular', 4)) no-repeat; 
             // background-size:100% 100%;
         }
     }
-    $i: 1;
-    @while $i < 11 {
-        .list-popular .bg-top#{$i} {
-            background: url(author-img('popular', $i)) no-repeat;
-            background-size: 100% 100%;
-        }
-        .list-ajective .bg-top#{$i} {
-            background: url(author-img('ajective', $i)) no-repeat;
-            background-size: 100% 100%;
-        }
-        .list-quality .bg-top#{$i} {
-            background: url(author-img('quality', $i)) no-repeat;
-            background-size: 100% 100%;
-        }
-        $i: $i+1;
-    }
+    // $i: 1;
+    // @while $i < 11 {
+    //     .list-popular .bg-top#{$i} {
+    //         background: url(author-img('popular', $i)) no-repeat;
+    //         background-size: 100% 100%;
+    //     }
+    //     .list-ajective .bg-top#{$i} {
+    //         background: url(author-img('ajective', $i)) no-repeat;
+    //         background-size: 100% 100%;
+    //     }
+    //     .list-quality .bg-top#{$i} {
+    //         background: url(author-img('quality', $i)) no-repeat;
+    //         background-size: 100% 100%;
+    //     }
+    //     $i: $i+1;
+    // }
     .list-others {
         width: px2rem(690px);
         margin: px2rem(50px) auto px2rem(150px);

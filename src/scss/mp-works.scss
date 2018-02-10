@@ -15,12 +15,12 @@ $topic-url:$images-url+'/C2';
 .list.mpworks {
     background-image: url($background-image2); // 标题
     .list-header {
-        background-image: url($header-image);
+        // background-image: url($header-image);
     } // 导航
     .nav {
         width: px2rem(685px);
         height: px2rem(67px);
-        margin: px2rem(35px) px2rem(43px) px2rem(30px);
+        margin: px2rem(35px) auto px2rem(30px);
         background-size: 100% 100%;
         display: flex;
         display: -webkit-flex;
@@ -101,39 +101,39 @@ $topic-url:$images-url+'/C2';
         margin-top: px2rem(100px);
         width: px2rem(185px);
         height: px2rem(193px);
-        background: url(author-img('spread', 2)) no-repeat;
-        background-size: 100% 100%;
+        // background: url(author-img('spread', 2)) no-repeat;
+        // background-size: 100% 100%;
     }
     .bg-top1 {
         margin-top: px2rem(40px);
         width: px2rem(210px);
         height: px2rem(212px);
-        background: url(author-img('spread', 1)) no-repeat;
-        background-size: 100% 100%;
+        // background: url(author-img('spread', 1)) no-repeat;
+        // background-size: 100% 100%;
     }
     .bg-top3 {
         margin-top: px2rem(100px);
         width: px2rem(185px);
         height: px2rem(193px);
-        background: url(author-img('spread', 3)) no-repeat;
-        background-size: 100% 100%;
+        // background: url(author-img('spread', 3)) no-repeat;
+        // background-size: 100% 100%;
     }
 
-    .list-topic {
-        .bg-top2 {
-            background: url(author-img('topic', 2)) no-repeat;
-            background-size: 100% 100%;
-        }
-        .bg-top1 {
-            background: url(author-img('topic', 1)) no-repeat;
-            background-size: 100% 100%;
-        }
-        .bg-top3 {
+    // .list-topic {
+    //     .bg-top2 {
+    //         background: url(author-img('topic', 2)) no-repeat;
+    //         background-size: 100% 100%;
+    //     }
+    //     .bg-top1 {
+    //         background: url(author-img('topic', 1)) no-repeat;
+    //         background-size: 100% 100%;
+    //     }
+    //     .bg-top3 {
     
-            background: url(author-img('topic', 3)) no-repeat;
-            background-size: 100% 100%;
-        }
-    }
+    //         background: url(author-img('topic', 3)) no-repeat;
+    //         background-size: 100% 100%;
+    //     }
+    // }
     .top3href {
         margin: px2rem(20px) auto 0;
         width: px2rem(610px);
@@ -160,9 +160,7 @@ $topic-url:$images-url+'/C2';
             box-sizing: border-box;
             padding: px2rem(32px) px2rem(40px);
             width: 100%;
-            $height: px2rem(150px);
-            height: $height;
-            font-family: "PingFangSC-Light";
+           
             p:first-child {
                 font-size: px2rem(28px); // height: px2rem(40px);
                 // line-height: px2rem(40px);
@@ -180,7 +178,8 @@ $topic-url:$images-url+'/C2';
                 margin-left: px2rem(10px);
             }
             p:last-child {
-                
+             
+                font-family: "PingFangSC-Light";
                 color: #D3B368;
                 margin-top: px2rem(16px);
                 font-size: px2rem(26px);
