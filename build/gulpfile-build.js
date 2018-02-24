@@ -10,11 +10,7 @@ const gulp     = require('gulp'),
     sass     = require('gulp-sass'),//压缩合并sass  
     revContent = require('gulp-rev'),                     //更改版本名
     revCollector = require('gulp-rev-collector'),     //gulp-rev的插件，用于html文件更改引用路径
-    px2rem   = require('gulp-px2rem-plugin'),// 将px转换成rem
     del      = require('del');
-    // browserSync = require("browser-sync").create();//浏览器实时刷新  
-
-// var config=require("./src/config.json");
 
 const SRC='./src';
 const DEST='./dist';
@@ -22,18 +18,16 @@ const DEST='./dist';
 // 编译sass文件
 gulp.task('scss', function () { 
     gulp.src(['./src/scss/*.scss']) //多个文件以数组形式传入  
-        .pipe(changed('dist/css', {hasChanged: changed.compareSha1Digest}))    // 过滤修改过的文件
+       // .pipe(changed('dist/css', {hasChanged: changed.compareSha1Digest}))    // 过滤修改过的文件
         .pipe(sass({
             outputStyle: 'expand'
             }))//编译scss文件       .pipe(px2rem())
-   
         .pipe(concat('main.css'))//合并之后生成main.css  
         .pipe(cleanCSS())//压缩新生成的css 
         .pipe(rev()) 
         .pipe(gulp.dest('dist/css'))//将会在css下生成main.css 
         .pipe(rev.manifest())
-        .pipe(gulp.dest('rev/css'))
-        // .pipe(browserSync.reload({stream:true}));  
+        .pipe(gulp.dest('rev/css'))  
 })
 
 //删除dist下的所有文件  
@@ -130,6 +124,7 @@ gulp.task('default',['serve']);
 
 function serve(){
     gulp.start('script','scss','html');  
+
     // browserSync.init({  
     //     port: 2017,  
     //     server: {  
